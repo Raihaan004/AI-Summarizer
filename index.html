@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Summarizer & Analyzer</title>
+    <title>AI Meeting Summarizer & Analyzer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -15,7 +15,6 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Custom scrollbar for a more polished look */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1a1a1a; }
         ::-webkit-scrollbar-thumb { background: #4a4a4a; border-radius: 4px; }
@@ -40,11 +39,11 @@
             <!-- Left Column: Inputs -->
             <div class="flex flex-col space-y-6">
                 <div id="drop-zone" class="relative flex-grow border-2 border-dashed border-gray-600 rounded-xl p-4 text-center transition-all duration-300 hover:border-purple-400 flex flex-col justify-center items-center">
-                    <input type="file" id="transcript-file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept=".txt,.doc,.docx,.pdf">
+                    <input type="file" id="transcript-file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept=".txt">
                     <div id="drop-zone-text" class="flex flex-col items-center justify-center text-gray-400">
                         <i data-lucide="upload-cloud" class="w-12 h-12 mb-4"></i>
-                        <p class="font-semibold">Drag & drop a file here, or click to select</p>
-                        <p class="text-sm text-gray-500">.txt only accepted</p>
+                        <p class="font-semibold">Drag & drop a .txt file here, or click to select</p>
+                        <p class="text-sm text-gray-500">Only .txt files can be processed</p>
                     </div>
                     <div id="file-preview-area" class="hidden w-full h-full flex flex-col text-left">
                         <div class="flex items-center justify-between bg-gray-700/80 text-white text-sm py-2 px-4 rounded-t-md">
@@ -52,7 +51,6 @@
                                 <i data-lucide="file-text" class="w-4 h-4 mr-2 flex-shrink-0"></i>
                                 <span id="file-name" class="truncate"></span>
                             </div>
-                            <!-- **** NEW: Clear button for the uploaded file **** -->
                             <button id="clear-file-button" class="ml-4 text-gray-400 hover:text-white transition-colors">
                                 <i data-lucide="x" class="w-4 h-4"></i>
                             </button>
@@ -62,7 +60,7 @@
                 </div>
                 <div class="relative">
                    <i data-lucide="wand-2" class="absolute top-1/2 left-4 -translate-y-1/2 text-gray-400"></i>
-                    <input type="text" id="custom-prompt" placeholder="Enter your summarization prompt..." class="w-full bg-gray-800/50 border border-gray-700 rounded-lg py-3 pl-12 pr-4 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all duration-300 placeholder-gray-500">
+                    <input type="text" id="custom-prompt" placeholder="Enter your summarization prompt..." class="w-full bg-gray-800/50 border border-gray-700 rounded-lg py-3 pl-12 pr-4 focus:ring-2 focus:ring-purple-500 outline-none transition-all duration-300 placeholder-gray-500">
                 </div>
                 <button id="generate-summary" class="w-full flex items-center justify-center bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105">
                     <span id="button-text"><i data-lucide="send" class="inline-block mr-2"></i>Generate & Analyze</span>
@@ -75,17 +73,17 @@
             <div class="flex flex-col space-y-6">
                 <div class="glass-effect rounded-xl p-6 flex flex-col flex-grow">
                     <h2 class="text-2xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-400">Generated Summary</h2>
-                    <textarea id="summary-text" placeholder="Your AI-generated summary will appear here..." class="flex-grow w-full bg-gray-800/50 border border-gray-700 rounded-lg p-4 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all duration-300 resize-none placeholder-gray-500 min-h-64"></textarea>
+                    <textarea id="summary-text" placeholder="Your AI-generated summary will appear here..." class="flex-grow w-full bg-gray-800/50 border border-gray-700 rounded-lg p-4 focus:ring-2 focus:ring-purple-500 outline-none transition-all duration-300 resize-none placeholder-gray-500 min-h-64"></textarea>
                     
                     <div class="mt-6">
-                        <h3 class="text-lg font-semibold mb-3">Share via Email</h3>
+                        <h3 class="text-lg font-semibold mb-3">Share via Gmail</h3>
                         <div class="flex flex-col sm:flex-row gap-4">
                             <div class="relative flex-grow">
                                 <i data-lucide="mail" class="absolute top-1/2 left-4 -translate-y-1/2 text-gray-400"></i>
-                                <input type="email" id="recipient-email" placeholder="Recipient's email address" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg py-3 pl-12 pr-4 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all duration-300 placeholder-gray-500">
+                                <input type="email" id="recipient-email" placeholder="Recipient's email address" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg py-3 pl-12 pr-4 focus:ring-2 focus:ring-purple-500 outline-none transition-all duration-300 placeholder-gray-500">
                             </div>
-                            <button id="share-summary" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center">
-                                Share
+                            <button id="share-summary" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center">
+                                <i data-lucide="mail" class="w-4 h-4 mr-2"></i> Share
                             </button>
                         </div>
                     </div>
@@ -129,12 +127,11 @@
         // --- Date and Time Functionality ---
         function updateTime() {
             const now = new Date();
-            // **** CHANGE: Simplified the date and time format and updates every second ****
             const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
             datetimeDisplay.textContent = now.toLocaleString('en-US', options);
         }
         updateTime();
-        setInterval(updateTime, 1000); // Update every second
+        setInterval(updateTime, 1000);
 
         // --- File Handling ---
         function handleFile(file) {
@@ -160,9 +157,8 @@
             }
         }
 
-        // **** NEW: Function to clear the file input and reset the view ****
         function clearFile() {
-            transcriptFileInput.value = ''; // This is the most important part
+            transcriptFileInput.value = '';
             transcriptContent = '';
             filePreviewArea.classList.add('hidden');
             dropZoneText.classList.remove('hidden');
@@ -236,6 +232,7 @@
             }
         });
 
+        // --- Share via Gmail Logic ---
         shareSummaryButton.addEventListener('click', () => {
             const recipient = recipientEmailInput.value;
             const summary = summaryTextarea.value;
@@ -243,8 +240,10 @@
                 errorMessage.textContent = 'Please provide a recipient email and generate a summary first.';
                 return;
             }
-            const mailtoLink = `mailto:${recipient}?subject=Meeting Summary&body=${encodeURIComponent(summary)}`;
-            window.location.href = mailtoLink;
+            
+            const subject = "AI-Generated Meeting Summary";
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipient)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(summary)}`;
+            window.open(gmailUrl, '_blank');
         });
     </script>
 </body>
