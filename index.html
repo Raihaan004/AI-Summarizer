@@ -188,13 +188,13 @@
             analysisContent.innerHTML = '';
 
             try {
-                const summaryPromise = fetch('http://localhost:3000/generate-summary', {
+                const summaryPromise = fetch('https://ai-summarizer-backend-desi.onrender.com/generate-summary', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ transcript: transcriptContent, prompt: prompt }),
                 });
 
-                const analysisPromise = fetch('http://localhost:3000/generate-analysis', {
+                const analysisPromise = fetch('https://ai-summarizer-backend-desi.onrender.com/generate-analysis', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ transcript: transcriptContent }),
