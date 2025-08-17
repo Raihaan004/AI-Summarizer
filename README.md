@@ -1,6 +1,8 @@
 # AI Meeting Summarizer & Analyzer
 
 ![AI Summarizer Screenshot](https://raw.githubusercontent.com/Raihaan004/AI-Summarizer/refs/heads/main/Screenshot.png)
+(https://raw.githubusercontent.com/Raihaan004/AI-Summarizer/refs/heads/main/working.png)
+(https://raw.githubusercontent.com/Raihaan004/AI-Summarizer/refs/heads/main/Gmail-ss.png)
  <!-- Replace with a URL to your screenshot -->
 
 An intelligent web application that transforms raw meeting transcripts into concise, structured summaries and provides actionable insights using the Groq AI API. This full-stack project was built to demonstrate proficiency in modern web development, API integration, and creating value-added features.
