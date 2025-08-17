@@ -5,7 +5,7 @@
 
 An intelligent web application that transforms raw meeting transcripts into concise, structured summaries and provides actionable insights using the Groq AI API. This full-stack project was built to demonstrate proficiency in modern web development, API integration, and creating value-added features.
 
-**Live Demo:** [View the live project here!](https://your-live-demo-url.com) <!-- Replace with your deployed Netlify URL -->
+**Live Demo:** [View the live project here!](https://ai-summarizer-and-analyzer.netlify.app/) <!-- Replace with your deployed Netlify URL -->
 
 ---
 
@@ -49,8 +49,8 @@ An intelligent web application that transforms raw meeting transcripts into conc
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/your-repository-name.git](https://github.com/your-username/your-repository-name.git)
-    cd your-repository-name
+    git clone [https://github.com/Raihaan004/AI-Summarizer.git](https://github.com/Raihaan004/AI-Summarizer.git)
+    cd AI-Summarizer
     ```
 
 2.  **Set up the Backend:**
