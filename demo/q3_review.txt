@@ -1,0 +1,15 @@
+Q3 2025 Financial Review & Q4 Planning
+
+Attendees: David (CEO), Chloe (CFO), Ben (Head of Sales), Maya (Product Lead)
+
+---
+
+David: Alright team, let's dive into the Q3 results and our plan for Q4. Chloe, can you start us off with the financials?
+
+Chloe: Certainly. For Q3, we hit a total revenue of $2.5 million, which is up 15% from Q2 and slightly above our forecast of $2.4 million. Our net profit margin was 18%. The primary driver was the strong performance of the Enterprise plan. However, our operational costs increased by 8% due to the new cloud infrastructure.
+
+Ben: On the sales front, we closed 45 new Enterprise deals, which is a record for us. The pipeline for Q4 is looking healthy, but we've noticed our sales cycle for mid-market clients has increased from 45 days to 60 days. This is a key area we need to address. I propose we introduce a new, simplified pricing tier to speed up decision-making for them.
+
+Maya: From the product side, the 'Analytics Dashboard V2' feature we launched in August has a 75% adoption rate among active users, which is fantastic. For Q4, our main priority is developing the 'Team Collaboration' module. We've hit a small snag and the projected launch date might slip from November 15th to December 1st. We need a final decision on whether we should allocate another engineer to keep it on schedule.
+
+David: Okay, good discussion. Here are the decisions. Ben, I approve the plan to develop a new pricing tier. Let's get a proposal by the end of next week. Maya, let's allocate that extra engineer. The Q4 launch is critical. Chloe, I need you to model the financial impact of both the new pricing and the extra engineering headcount. Let's circle back on these points next Monday.
